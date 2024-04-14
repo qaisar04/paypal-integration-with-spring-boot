@@ -10,12 +10,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Service for handling PayPal payments.
+ */
 @Service
 @RequiredArgsConstructor
 public class PaypalService {
 
     private final APIContext apiContext;
 
+    /**
+     * Creates a payment.
+     *
+     * @param total the total amount of the payment
+     * @param currency the currency of the payment
+     * @param method the payment method
+     * @param intent the payment intent
+     * @param description the description of the payment
+     * @param cancelUrl the URL to redirect to if the payment is cancelled
+     * @param succesUrl the URL to redirect to if the payment is successful
+     * @return the created Payment
+     * @throws PayPalRESTException if an error occurs while creating the payment
+     */
     public Payment createPayment(
             Double total,
             String currency,
@@ -53,6 +69,14 @@ public class PaypalService {
         return payment.create(apiContext);
     }
 
+    /**
+     * Executes a payment.
+     *
+     * @param paymentId the ID of the payment to execute
+     * @param payerId the ID of the payer
+     * @return the executed Payment
+     * @throws PayPalRESTException if an error occurs while executing the payment
+     */
     public Payment executePayment(
             String paymentId,
             String payerId
