@@ -2,8 +2,8 @@ spring:
   application:
     name: paypal-integration
 paypal:
-  client-id: AWJLE4ye7uZ2T4vr-oD1wJMohZz1JmgKJckN_vZXwexCSvZ75-3AgRvQWzYdu6PGi5N-w7oz81etnUtQ
-  client-secret: EBJoGqZ8dQ7-PTRCIdD_xy1sRK4kwotYlTCSmUVbWxacGKrqgJDI947DCFIegs1XrsbwOwzqUMLl-WIh
+  client-id: # https://developer.paypal.com/dashboard from here you can get
+  client-secret: # https://developer.paypal.com/dashboard from here you can get
   mode: sandbox # use 'sandbox' for testing and 'live' for production
 url:
   success: http://localhost:8080/payment/success
